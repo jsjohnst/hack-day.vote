@@ -2,6 +2,10 @@
 
 include("common.php");
 
+if(!$logged_in) {
+    header("Location: /start.php"); 
+}
+
 $result = $mysql->query("SELECT team, votes, judge FROM votes", MYSQLI_USE_RESULT);
 
 $audience = array();
