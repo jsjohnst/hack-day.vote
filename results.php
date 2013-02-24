@@ -42,7 +42,7 @@ ksort($audience);
     <title>Results</title>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script> 
-    <script type="text/javascript" src="jquery.tablesorter.js"></script> 
+    <script type="text/javascript" src="/jquery.tablesorter.js"></script> 
     <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
