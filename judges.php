@@ -14,7 +14,7 @@ include("common.php");
 <body>
     <div data-role="page" id="judges">  
     <!-- ====== main content starts here ===== -->  
-    <div data-role="header" id="hdrMain" name="hdrMain" data-nobackbtn="true"><h1>NYUAD 2013 Judge</h1></div>  
+    <div data-role="header" id="hdrMain" name="hdrMain" data-nobackbtn="true"><div><h1>NYUAD 2013 Judge</h1></div></div>  
     <div data-role="content" id="contentMain" name="contentMain">  
     	<form method="post" action="index.php">
     		<label for="email">Email:</label>
