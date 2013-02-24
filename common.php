@@ -55,7 +55,10 @@ if(isset($_REQUEST["action"])) {
 	    $team = intval($_POST["team"]);
 	    $scores = array();
 	    foreach($criteria as $key=>$label) {
-		$scores[$key] = $_POST[$key];
+		    $score = intval($_POST[$key]);
+            if($score > 0 && $score <= 5) {
+                $scores[$key] = $score;
+            }
 	    }
 	
 	    error_log("Email: " . $email . " Team: " . $team . " Votes: " . var_export($scores, true));
