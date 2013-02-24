@@ -49,7 +49,8 @@ ksort($audience);
 <head>
     <title>Results</title>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script> 
+    <script type="text/javascript" src="/jquery-latest.js"></script> 
+    <script type="text/javascript" src="/jquery.metadata.js"></script> 
     <script type="text/javascript" src="/jquery.tablesorter.min.js"></script> 
     <style>
     body {
@@ -96,8 +97,8 @@ ksort($audience);
     </style>
     <script type="text/javascript">
     $(document).ready(function() { 
-        $("#Judges").tablesorter(); 
-        $("#Audience").tablesorter(); 
+        $("table#Judges").tablesorter();
+        $("table#Audience").tablesorter();
     }); 
     </script>
 </head>
@@ -118,13 +119,16 @@ ksort($audience);
     <div class="container">
         <?php foreach($who as $var => $label): ?>
         <h1><?php print($label); ?></h1>
-        <table id="<?php print($label); ?>" class="table">
+        <table id="<?php print($label); ?>" class="table table-striped">
+            <thead>
             <tr>
                 <th>Team</th>
                 <?php foreach($criteria as $key=>$label): ?>
                 <th><?php print($label); ?></th>
                 <?php endforeach; ?>
             </tr>
+            </thead>
+            <tbody>
             <?php foreach($$var as $team => $scores): ?>
             <tr>
                 <td><?php print($team); ?></td>
@@ -133,6 +137,7 @@ ksort($audience);
                 <?php endforeach; ?>
             </tr>
             <?php endforeach; ?>
+            </tbody>
         </table>
         <?php endforeach; ?>
     </div>
