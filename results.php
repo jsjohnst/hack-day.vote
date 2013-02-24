@@ -41,26 +41,46 @@ ksort($audience);
 <head>
     <title>Results</title>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
 </head>
 <body>
-    <?php foreach($who as $var => $label): ?>
-    <h1><?php print($label); ?></h1>
-    <table class="table">
-        <tr>
-            <th>Team</th>
-            <?php foreach($criteria as $key=>$label): ?>
-            <th><?php print($label); ?></th>
+    <div class="navbar navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">NYUAD Hackathon 2013 Results</a>          
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+        <?php foreach($who as $var => $label): ?>
+        <h1><?php print($label); ?></h1>
+        <table class="table">
+            <tr>
+                <th>Team</th>
+                <?php foreach($criteria as $key=>$label): ?>
+                <th><?php print($label); ?></th>
+                <?php endforeach; ?>
+            </tr>
+            <?php foreach($$var as $team => $scores): ?>
+            <tr>
+                <td><?php print($team); ?></td>
+                <?php foreach($criteria as $key=>$label): ?>
+                <th><?php print(round(array_sum($scores[$key]) / count($scores[$key]), 2)); ?></th>
+                <?php endforeach; ?>
+            </tr>
             <?php endforeach; ?>
-        </tr>
-        <?php foreach($$var as $team => $scores): ?>
-        <tr>
-            <td><?php print($team); ?></td>
-            <?php foreach($criteria as $key=>$label): ?>
-            <th><?php print(round(array_sum($scores[$key]) / count($scores[$key]), 2)); ?></th>
-            <?php endforeach; ?>
-        </tr>
+        </table>
         <?php endforeach; ?>
-    </table>
-    <?php endforeach; ?>
+    </div>
 </body>
             
