@@ -65,19 +65,22 @@ if(isset($_REQUEST["action"])) {
 
 	    $stmt = $mysql->prepare("REPLACE INTO votes (email, judge, team, votes, ipaddress, ts) VALUES (?, ?, ?, ?, ?, ?);");
 
+        if(!empty($scores)) {
             $stmt->bind_param("siissi", $b1, $b2, $b3, $b4, $b5, $b6);
-	    $b1 = $email;
-	    $b2 = $judge;
-	    $b3 = $team;
-	    $b4 = json_encode($scores);
-	    $b5 = $_SERVER["REMOTE_ADDR"];
-	    $b6 = time();
+	        $b1 = $email;
+	        $b2 = $judge;
+	        $b3 = $team;
+	        $b4 = json_encode($scores);
+	        $b5 = $_SERVER["REMOTE_ADDR"];
+	        $b6 = time();
 
-	    $stmt->execute();
+	        $stmt->execute();
+	        $flash_message = "Your vote has been recorded. On to the next one! :)";
+	        $current_team = $team + 1;
+        } else {
+            $flash_message = "You didn't score anything! :(";
+        }
 
-	    $flash_message = "Your vote has been recorded. On to the next one! :)";
-
-	    $current_team = $team + 1;
 
 	    break;
 	
