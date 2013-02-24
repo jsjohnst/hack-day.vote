@@ -33,6 +33,8 @@ $current_team = 1;
 $uid = isset($_COOKIE["uid"]) ? $_COOKIE["uid"] : "::";
 list($email, $judge, $hash) = explode(":", $uid);
 
+$mysql = new mysqli("localhost", "root", "", "nyuadvote");
+
 $logged_in = $hash === md5($email . $judge . SECRET_SALT);
 
 if(isset($_REQUEST["action"])) {
@@ -57,8 +59,6 @@ if(isset($_REQUEST["action"])) {
 	    }
 	
 	    error_log("Email: " . $email . " Team: " . $team . " Votes: " . var_export($scores, true));
-	
-	    $mysql = new mysqli("localhost", "root", "", "nyuadvote");
 
 	    $stmt = $mysql->prepare("REPLACE INTO votes (email, judge, team, votes, ipaddress, ts) VALUES (?, ?, ?, ?, ?, ?);");
 
