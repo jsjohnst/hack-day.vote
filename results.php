@@ -119,7 +119,7 @@ ksort($audience);
     <div class="container">
         <?php foreach($who as $var => $label): ?>
         <h1><?php print($label); ?></h1>
-        <table id="<?php print($label); ?>" class="table">
+        <table id="<?php print($label); ?>" class="table table-striped">
             <thead>
             <tr>
                 <th>Team</th>
