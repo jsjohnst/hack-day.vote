@@ -14,9 +14,6 @@
 
 	<!-- Included CSS Files -->
 	<link rel="stylesheet" href="stylesheets/app.css">
-
-	<script src="javascripts/foundation/modernizr.foundation.js"></script>
-
 </head>
 <body>
 	
