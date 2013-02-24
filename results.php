@@ -18,7 +18,7 @@ while ($row = $result->fetch_assoc()) {
         }
         
         foreach($criteria as $key=>$label) {
-            array_push($judges[$team][$key], $votes[$key]);
+            array_push($judges[$team][$key], $votes->$key);
         }
     } else {
         if(!isset($audience[$team])) {
@@ -26,7 +26,7 @@ while ($row = $result->fetch_assoc()) {
         }
         
         foreach($criteria as $key=>$label) {
-            array_push($audience[$team][$key], $votes[$key]);
+            array_push($audience[$team][$key], $votes->$key);
         }
     } 
 }
