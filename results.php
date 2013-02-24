@@ -49,7 +49,8 @@ ksort($audience);
 <head>
     <title>Results</title>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script> 
+    <script type="text/javascript" src="/jquery-latest.js"></script> 
+    <script type="text/javascript" src="/jquery.metadata.js"></script> 
     <script type="text/javascript" src="/jquery.tablesorter.min.js"></script> 
     <style>
     body {
