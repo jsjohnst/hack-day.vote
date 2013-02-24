@@ -78,7 +78,7 @@ if(isset($_REQUEST["action"])) {
 	        $flash_message = "Your vote has been recorded. On to the next one! :)";
 	        $current_team = $team + 1;
         } else {
-            $flash_message = "You didn't score anything! :(");
+            $flash_message = "You didn't score anything! :(";
         }
 
 
