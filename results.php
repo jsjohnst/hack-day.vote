@@ -121,12 +121,15 @@ ksort($audience);
         <?php foreach($who as $var => $label): ?>
         <h1><?php print($label); ?></h1>
         <table id="<?php print($label); ?>" class="table">
+            <thead>
             <tr>
                 <th>Team</th>
                 <?php foreach($criteria as $key=>$label): ?>
                 <th><?php print($label); ?></th>
                 <?php endforeach; ?>
             </tr>
+            </thead>
+            <tbody>
             <?php foreach($$var as $team => $scores): ?>
             <tr>
                 <td><?php print($team); ?></td>
@@ -135,6 +138,7 @@ ksort($audience);
                 <?php endforeach; ?>
             </tr>
             <?php endforeach; ?>
+            </tbody>
         </table>
         <?php endforeach; ?>
     </div>
