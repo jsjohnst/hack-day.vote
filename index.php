@@ -14,7 +14,10 @@ include("common.php");
 <body>
     <div data-role="page" id="scorecard">  
         <!-- ====== main content starts here ===== -->  
-        <div data-role="header" id="hdrMain" name="hdrMain" data-nobackbtn="true"><h1>NYUAD 2013<?php if(isset($judge) && $judge): ?> Judge<?php endif; ?></h1></div>  
+        <div data-role="header" id="hdrMain" name="hdrMain" data-nobackbtn="true">
+            <h1>NYUAD 2013<?php if(isset($judge) && $judge): ?> Judge<?php endif; ?></h1>
+            <h2><?php print($email); ?></h2>
+        </div>  
         <div data-role="content" id="contentMain" name="contentMain">  
 	<?php if(isset($flash_message) && $flash_message): ?>
             <h3 style="color:darkgreen" id="status"><?php print($flash_message); ?></h3>
