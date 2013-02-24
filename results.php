@@ -33,8 +33,8 @@ while ($row = $result->fetch_assoc()) {
 
 $who = array("judges"=>"Judges", "audience"=>"Audience");
 
-asort($judges);
-asort($audience);
+ksort($judges);
+ksort($audience);
 
 ?>
 <html>
