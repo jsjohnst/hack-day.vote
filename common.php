@@ -40,8 +40,12 @@ $logged_in = $hash === md5($email . $judge . SECRET_SALT);
 if(isset($_REQUEST["action"])) {
     switch($_REQUEST["action"]) {
 	case 'start':
-	    $email = $_POST["email"];
-	    $judge = $_POST["judge"] ? 1 : 0;
+	    $email = isset($_POST["email"]) ? $_POST["email"] : false;
+	    $judge = isset($_POST["judge"]) && $_POST["judge"] ? 1 : 0;
+
+        if(!$email) {
+            header("Location: /start.php");
+        }
 
 	    $hash = $email . ":" . $judge . ":" . md5($email . $judge . SECRET_SALT);
 	    setcookie("uid", $hash, time() + (86400*30));
