@@ -15,7 +15,7 @@ include("common.php");
     <div data-role="page" id="scorecard">  
         <!-- ====== main content starts here ===== -->  
         <div data-role="header" id="hdrMain" name="hdrMain" data-nobackbtn="true">
-            <h1 style="text-align:center;">NYUAD 2013 <?php if(isset($judge) && $judge): ?>Judge <?php endif; ?></h1>
+            <div><h1 style="text-align:center;">NYUAD 2013 <?php if(isset($judge) && $judge): ?>Judge <?php endif; ?></h1></div>
             <h2><?php print($email); ?></h2>
         </div>  
         <div data-role="content" id="contentMain" name="contentMain">  
