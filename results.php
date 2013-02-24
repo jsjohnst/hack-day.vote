@@ -40,11 +40,12 @@ ksort($audience);
 <html>
 <head>
     <title>Results</title>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
 </head>
 <body>
     <?php foreach($who as $var => $label): ?>
     <h1><?php print($label); ?></h1>
-    <table>
+    <table class="table">
         <tr>
             <th>Team</th>
             <?php foreach($criteria as $key=>$label): ?>
