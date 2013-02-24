@@ -52,13 +52,52 @@ ksort($audience);
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script> 
     <script type="text/javascript" src="/jquery.tablesorter.min.js"></script> 
     <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
+    body {
+       padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    }
+    table .header {
+      cursor: pointer;
+    }
+    table .header:after {
+      content: "";
+      float: right;
+      margin-top: 7px;
+      border-width: 0 4px 4px;
+      border-style: solid;
+      border-color: #000000 transparent;
+      visibility: hidden;
+    }
+    table .headerSortUp, table .headerSortDown {
+      background-color: #f7f7f9;
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    }
+    table .header:hover:after {
+      visibility: visible;
+    }
+    table .headerSortDown:after, table .headerSortDown:hover:after {
+      visibility: visible;
+      filter: alpha(opacity=60);
+      -moz-opacity: 0.6;
+      opacity: 0.6;
+    }
+    table .headerSortUp:after {
+      border-bottom: none;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid #000000;
+      visibility: visible;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      filter: alpha(opacity=60);
+      -moz-opacity: 0.6;
+      opacity: 0.6;
+    }
     </style>
     <script type="text/javascript">
     $(document).ready(function() { 
-        $("#results").tablesorter(); 
+        $("#Judges").tablesorter(); 
+        $("#Audience").tablesorter(); 
     }); 
     </script>
 </head>
@@ -79,7 +118,7 @@ ksort($audience);
     <div class="container">
         <?php foreach($who as $var => $label): ?>
         <h1><?php print($label); ?></h1>
-        <table id="results" class="table">
+        <table id="<?php print($label); ?>" class="table">
             <tr>
                 <th>Team</th>
                 <?php foreach($criteria as $key=>$label): ?>
