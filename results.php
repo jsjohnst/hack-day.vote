@@ -97,9 +97,8 @@ ksort($audience);
     </style>
     <script type="text/javascript">
     $(document).ready(function() { 
-        alert("here")
-        $("table#Judges").tablesorter({ sortList: [[1,0]] });
-        $("table#Audience").tablesorter({ sortList: [[1,0]] });
+        $("table#Judges").tablesorter();
+        $("table#Audience").tablesorter();
     }); 
     </script>
 </head>
