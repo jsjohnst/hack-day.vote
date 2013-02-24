@@ -13,18 +13,22 @@ while ($row = $result->fetch_assoc()) {
     $votes = json_decode($row["votes"]);
 
     if($judge) {
-        $who = "judges";
+        if(!isset($judges[$team])) {
+            $judges[$team] = array();
+        }
+        
+        foreach($criteria as $key=>$label) {
+            array_push($judges[$team][$key], $votes[$key]);
+        }
     } else {
-        $who = "audiences";
+        if(!isset($audience[$team])) {
+            $audience[$team] = array();
+        }
+        
+        foreach($criteria as $key=>$label) {
+            array_push($audience[$team][$key], $votes[$key]);
+        }
     } 
-
-    if(!isset($$who[$team])) {
-        $$who[$team] = array();
-    }
-
-    foreach($criteria as $key=>$label) {
-        array_push($$who[$team][$key], $votes[$key]);
-    }
 }
 
 ?>
