@@ -35,12 +35,12 @@ if ((($_FILES["file"]["type"] == "application/zip")
 {
   if ($_FILES["file"]["error"] > 0) {
     echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
-  } else if(file_exists("/websites/nyuad.hack-day.net/upload/" . basename($_FILES["file"]["name"]))) {
+  } else if(file_exists("/websites/nyuad.hack-day.net/uploads/" . basename($_FILES["file"]["name"]))) {
     echo "Please choose a different name for your zip file";
   } else {
     echo "Thank you! Your file has been submitted.";
 
-    move_uploaded_file($_FILES["file"]["tmp_name"], "/websites/nyuad.hack-day.net/upload/" . basename($_FILES["file"]["name"]));
+    move_uploaded_file($_FILES["file"]["tmp_name"], "/websites/nyuad.hack-day.net/uploads/" . basename($_FILES["file"]["name"]));
   }
 } else {
   echo "Invalid file. You must upload a ZIP file.";
