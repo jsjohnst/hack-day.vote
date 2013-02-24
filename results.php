@@ -31,12 +31,16 @@ while ($row = $result->fetch_assoc()) {
     } 
 }
 
+$who = array("judges"=>"Judges", "audience"=>"Audience");
+
 ?>
 <html>
 <head>
     <title>Results</title>
 </head>
 <body>
+    <?php foreach($who as $var => $label): ?>
+    <h1><?php print($label); ?></h1>
     <table>
         <tr>
             <th>Team</th>
@@ -44,7 +48,7 @@ while ($row = $result->fetch_assoc()) {
             <th><?php print($label); ?></th>
             <?php endforeach; ?>
         </tr>
-        <?php foreach($judges as $team => $scores): ?>
+        <?php foreach($$var as $team => $scores): ?>
         <tr>
             <td><?php print($team); ?></td>
             <?php foreach($criteria as $key=>$label): ?>
@@ -53,5 +57,6 @@ while ($row = $result->fetch_assoc()) {
         </tr>
         <?php endforeach; ?>
     </table>
+    <?php endforeach; ?>
 </body>
             
